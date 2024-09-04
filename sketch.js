@@ -7,3 +7,5 @@ function createGrid() {
         }
     }
 }
+
+createGrid();

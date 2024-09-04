@@ -1,0 +1,13 @@
+#grid {
+    display: flex;
+    height: 960px;
+    width: 960px;
+    flex-wrap: wrap;
+}
+
+#grid > * {
+    background-color: azure;
+    outline: 1px solid black;
+    width: 60px;
+    height: 60px;
+}
