@@ -3,12 +3,13 @@ function initGrid() {
     const mainDiv = document.querySelector("#grid");
     const inputGrid = document.querySelector("#grid-input");
     const inputColor = document.querySelector("#color-input");
+    const btnRainbow = document.querySelector("#rainbow-mode");
     const value = document.querySelector("#value");
     appendGrid(mainDiv, inputGrid.value);
-    // Будем передвать тот цвет или раудугу по выбору пользователя
     mouseMoveAndMouseDown(mainDiv, randomColor);
     listenInputChangeColor(inputColor, mainDiv);
     listenInputChangeGridValue(inputGrid, value, mainDiv);
+    listenRainbowMode(btnRainbow, mainDiv);
 }
 
 function listenInputChangeGridValue (input, value, grid) {
@@ -19,9 +20,15 @@ function listenInputChangeGridValue (input, value, grid) {
     })
 }
 
+function listenRainbowMode (btn, target) {
+    btn.addEventListener("click", () => {
+        mouseMoveAndMouseDown(target, randomColor);
+    })
+}
+
+// Parse input-color value and change pen to a new chosen color
 function listenInputChangeColor (inputColor, mainDiv) {
     inputColor.addEventListener("input", (event) => {
-        // Преобразовать строку в функцию и передать
         let color = event.target.value;
         let red = parseInt(color.substr(1, 2), 16);
         let green = parseInt(color.substr(3, 2), 16);
@@ -67,16 +74,22 @@ function randomColor(event) {
 // Handle the event by whileMove() only when mousedown and move over inside the target
 function mouseMoveAndMouseDown(target, whileMove) {
     let endMove = function () {
+        console.log(`work end move. Whilemove = ${whileMove}`)
         target.removeEventListener('mouseover', whileMove);
+        //target.removeEventListener('mousedown', applyWhenMouseDown);
         target.removeEventListener('mouseup', endMove);
     };
 
-    target.addEventListener('mousedown', function (event) {
+    let applyWhenMouseDown = function(event) {
         event.preventDefault()  // prevent drag
         whileMove(event);
         target.addEventListener('mouseover', whileMove);
-        target.addEventListener('mouseup', endMove);   
-    });
+        target.addEventListener('mouseup', endMove);
+    }
+
+    target.addEventListener('mousedown', applyWhenMouseDown);
 }
+
+
 
 initGrid();
