@@ -1,19 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #grid {
     display: flex;
-    height: 480px;
-    width: 480px;
+    height: 560px;
+    width: 560px;
     flex-wrap: wrap;
-    border: 1px solid black;
+    outline: 1px solid black;
+    margin: 5px;
 }
 
 #grid > * {
+    display: flex;
+    flex-direction: column;
     background-color: azure;
-    outline: 1px solid black;
-    width: 30px;
-    height: 30px;
 }
 
-/*
-#grid > *:hover {
-    background-color: blueviolet;
-}*/
+.column > * {
+    width: 5.6px;
+    height: 5.6px;
+    outline: 1px solid black;
+}
