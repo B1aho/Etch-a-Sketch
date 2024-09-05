@@ -2,8 +2,12 @@ const gridSize = 560;
 
 function createGrid() {
     const mainDiv = document.querySelector("#grid");
+    const btn = document.querySelector("button");
     appendGrids(mainDiv);
     mouseMoveAndMouseDown(mainDiv, color);
+    btn.addEventListener("click", () => {
+        mainDiv.textContent = "";
+    })
 }
 
 function countSquareSize(squareNumber) {
