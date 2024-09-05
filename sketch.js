@@ -17,14 +17,15 @@ function color(event) {
     event.target.style.background = "green"; 
 }
 
-// Эта функция работает пока неправильно, она после нажатия все красит, даже если поднимается мышка
+// Handle the event by whileMove() only when mousedown and move over inside the target
 function mouseMoveAndMouseDown(target, whileMove) {
     let endMove = function () {
-        target.removeEventListener('mousemove', whileMove);
+        target.removeEventListener('mouseover', whileMove);
         target.removeEventListener('mouseup', endMove);
     };
 
     target.addEventListener('mousedown', function (event) {
+        event.preventDefault()  // prevent drag
         target.addEventListener('mouseover', whileMove);
         target.addEventListener('mouseup', endMove);   
     });
