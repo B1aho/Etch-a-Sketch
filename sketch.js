@@ -1,32 +1,28 @@
 const gridSize = 560;
+const gridInitSize = 32;
 const mainDiv = document.querySelector("#grid");
-const btn = document.querySelector("button");
+const input = document.querySelector("input");
 
 function createGrid() {
-    appendGrids();
+    appendGrids(gridInitSize);
     mouseMoveAndMouseDown(mainDiv, color);
-    btn.addEventListener("click", () => {
+    /*btn.addEventListener("click", () => {
         while (mainDiv.firstChild) {
             mainDiv.removeChild(mainDiv.lastChild);
         }
-    });
-}
-
-function countSquareSize(squareNumber) {
-    let length = (gridSize / squareNumber).toFixed(2);
-    return let;
+    });*/
 }
 
 function changeGrid() {
     
 }
 
-function appendGrids(squareSize) {
-    for (let i = 0; i < 50; i++) {
+function appendGrids(squareNumber) {
+    for (let i = 0; i < squareNumber; i++) {
         let column = document.createElement("div");
         column.setAttribute("class", "column");
         mainDiv.appendChild(column);
-        for (let j = 0; j < 50; j++) {
+        for (let j = 0; j < squareNumber; j++) {
             let square = document.createElement("div");
             square.setAttribute("class", "square");
             column.appendChild(square);
