@@ -7,14 +7,17 @@
 .content {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 #grid {
     display: flex;
+    flex-shrink: 0;
     height: 560px;
     width: 560px;
     flex-wrap: wrap;
     outline: 1px solid black;
+    margin-top: 10px;
 }
 
 .column {
@@ -28,14 +31,3 @@
     outline: 1px solid black;
     flex: 1;
 }
-
-.scrollable {
-    overflow: auto;
-   width: 70px; /* adjust this width depending to amount of text to display */
-   height: 80px; /* adjust height depending on number of options to display */
-   border: 1px silver solid;
-}
-
-.scrollable select{
-    border: none;
-  }
