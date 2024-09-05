@@ -32,6 +32,17 @@
     flex: 1;
 }
 
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tools {
+    display: flex;
+    flex-direction: column;
+}
+
 #value {
     text-align: center;
 }
