@@ -1,5 +1,4 @@
-const gridSize = 560;
-
+// Initilize grid and add event listeners to it and to input
 function initGrid() {
     const mainDiv = document.querySelector("#grid");
     const input = document.querySelector("input");
