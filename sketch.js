@@ -5,12 +5,11 @@ const menu = document.querySelector("#menu");
 
 
 const input = document.querySelector("input");
-const value = document.createElement("p");
-menu.appendChild(value);
+const value = document.querySelector("#value");
 
 input.addEventListener("input", (event) => {
     let inputVal = event.target.value;
-    value.textContent = inputVal;
+    value.textContent = `${inputVal} X ${inputVal}`;
     changeGrid(+inputVal);
 })
 
