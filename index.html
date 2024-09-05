@@ -8,19 +8,23 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <div class="main">
     <div class="content">
         <div id="grid">
         </div>
         <div id="menu">
-            <input id="grid-input" type="range" min="1" max="100">
-            <p id="value">50 X 50</p>
+            <div class="grid-value">
+                <input id="grid-input" type="range" min="1" max="100">
+                <p id="value">50 X 50</p>
+            </div>
             <div class="tools">
-                <div><label>Pen color:</label><input id="color-input" type="color"></div>
+                <div class="color-wrap"><label>Pen color:</label><input id="color-input" type="color"></div>
                 <button id="clear">Clear area</button>
                 <button id="no-grid">Toggle grid</button>
                 <button id="rainbow-mode">Rainbow pen</button>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
