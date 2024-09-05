@@ -32,6 +32,10 @@
     flex: 1;
 }
 
+.square-no-outline {
+    outline: none;
+}
+
 #menu {
     display: flex;
     flex-direction: column;
