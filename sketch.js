@@ -1,17 +1,27 @@
+const gridSize = 560;
+
 function createGrid() {
     const mainDiv = document.querySelector("#grid");
     appendGrids(mainDiv);
     mouseMoveAndMouseDown(mainDiv, color);
 }
 
-function appendGrids(mainDiv) {
-    for (let i = 0; i < 100; i++) {
+function countSquareSize(squareNumber) {
+
+}
+
+function changeGrid() {
+    
+}
+
+function appendGrids(mainDiv, squareSize) {
+    for (let i = 0; i < 50; i++) {
         let column = document.createElement("div");
         column.setAttribute("class", "column");
         mainDiv.appendChild(column);
-        for (let j = 0; j < 100; j++) {
-            let miniDiv = document.createElement("div");
-            column.appendChild(miniDiv);
+        for (let j = 0; j < 50; j++) {
+            let square = document.createElement("div");
+            column.appendChild(square);
         }
     }
 }

@@ -20,7 +20,8 @@
 }
 
 .column > * {
-    width: 5.6px;
-    height: 5.6px;
+    width: 11.2px;
+    height: 11.2px;
     outline: 1px solid black;
+    flex: 1;
 }
