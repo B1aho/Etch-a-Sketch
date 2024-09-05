@@ -1,11 +1,14 @@
 // Initilize grid and add event listeners to it and to input
 function initGrid() {
     const mainDiv = document.querySelector("#grid");
-    const input = document.querySelector("input");
+    const inputGrid = document.querySelector("#grid-input");
+    const inputColor = document.querySelector("#color-input");
     const value = document.querySelector("#value");
-    appendGrid(mainDiv, input.value);
+    appendGrid(mainDiv, inputGrid.value);
+    // Будем передвать тот цвет или раудугу по выбору пользователя
     mouseMoveAndMouseDown(mainDiv, randomColor);
-    listenInputChangeGridValue(input, value, mainDiv);
+    listenInputChangeColor(inputColor, mainDiv);
+    listenInputChangeGridValue(inputGrid, value, mainDiv);
 }
 
 function listenInputChangeGridValue (input, value, grid) {
@@ -13,6 +16,20 @@ function listenInputChangeGridValue (input, value, grid) {
         let inputVal = event.target.value;
         value.textContent = `${inputVal} X ${inputVal}`;
         changeGrid(inputVal, grid);
+    })
+}
+
+function listenInputChangeColor (inputColor, mainDiv) {
+    inputColor.addEventListener("input", (event) => {
+        // Преобразовать строку в функцию и передать
+        let color = event.target.value;
+        let red = parseInt(color.substr(1, 2), 16);
+        let green = parseInt(color.substr(3, 2), 16);
+        let blue = parseInt(color.substr(5, 2), 16);
+        let colorFunc = (r, g, b) => function (event) {
+            event.target.style.background = `rgb(${r}, ${g} ,${b})`;
+        }
+        mouseMoveAndMouseDown(mainDiv, colorFunc(red, green, blue));
     })
 }
 
@@ -51,6 +68,7 @@ function randomColor(event) {
 function mouseMoveAndMouseDown(target, whileMove) {
     let endMove = function () {
         target.removeEventListener('mouseover', whileMove);
+        target.removeEventListener('mouseup', endMove);
     };
 
     target.addEventListener('mousedown', function (event) {
