@@ -1,23 +1,36 @@
 const gridSize = 560;
 const gridInitSize = 32;
 const mainDiv = document.querySelector("#grid");
+const menu = document.querySelector("#menu");
+
+
 const input = document.querySelector("input");
+const value = document.createElement("p");
+menu.appendChild(value);
 
-function createGrid() {
-    appendGrids(gridInitSize);
+input.addEventListener("input", (event) => {
+    let inputVal = event.target.value;
+    value.textContent = inputVal;
+    changeGrid(+inputVal);
+})
+
+function initGrid() {
+    appendGrid(gridInitSize);
     mouseMoveAndMouseDown(mainDiv, color);
-    /*btn.addEventListener("click", () => {
-        while (mainDiv.firstChild) {
-            mainDiv.removeChild(mainDiv.lastChild);
-        }
-    });*/
 }
 
-function changeGrid() {
-    
+function changeGrid(num) {
+    clearGrid()
+    appendGrid(num);
 }
 
-function appendGrids(squareNumber) {
+function clearGrid() {
+    while (mainDiv.firstChild) {
+        mainDiv.removeChild(mainDiv.lastChild);
+    }
+}
+
+function appendGrid(squareNumber) {
     for (let i = 0; i < squareNumber; i++) {
         let column = document.createElement("div");
         column.setAttribute("class", "column");
@@ -48,4 +61,4 @@ function mouseMoveAndMouseDown(target, whileMove) {
     });
 }
 
-createGrid();
+initGrid();
