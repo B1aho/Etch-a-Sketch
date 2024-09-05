@@ -4,7 +4,7 @@ function initGrid() {
     const input = document.querySelector("input");
     const value = document.querySelector("#value");
     appendGrid(mainDiv, input.value);
-    mouseMoveAndMouseDown(mainDiv, color);
+    mouseMoveAndMouseDown(mainDiv, randomColor);
     listenInputChangeGridValue(input, value, mainDiv);
 }
 
@@ -40,8 +40,11 @@ function appendGrid(parentNode, squareNumber) {
     }
 }
 
-function color(event) {
-    event.target.style.background = "green"; 
+function randomColor(event) {
+    let x = Math.floor(Math.random() * 255 + 1);
+    let y = Math.floor(Math.random() * 255 + 1);
+    let z = Math.floor(Math.random() * 255 + 1);
+    event.target.style.background = `rgb(${x}, ${y} ,${z})`; 
 }
 
 // Handle the event by whileMove() only when mousedown and move over inside the target
