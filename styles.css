@@ -13,15 +13,14 @@
     margin: 5px;
 }
 
-#grid > * {
+.column {
     display: flex;
+    flex: 1;
     flex-direction: column;
     background-color: azure;
 }
 
-.column > * {
-    width: 11.2px;
-    height: 11.2px;
+.square {
     outline: 1px solid black;
     flex: 1;
 }

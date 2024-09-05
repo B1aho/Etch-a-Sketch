@@ -1,30 +1,34 @@
 const gridSize = 560;
+const mainDiv = document.querySelector("#grid");
+const btn = document.querySelector("button");
 
 function createGrid() {
-    const mainDiv = document.querySelector("#grid");
-    const btn = document.querySelector("button");
-    appendGrids(mainDiv);
+    appendGrids();
     mouseMoveAndMouseDown(mainDiv, color);
     btn.addEventListener("click", () => {
-        mainDiv.textContent = "";
-    })
+        while (mainDiv.firstChild) {
+            mainDiv.removeChild(mainDiv.lastChild);
+        }
+    });
 }
 
 function countSquareSize(squareNumber) {
-
+    let length = (gridSize / squareNumber).toFixed(2);
+    return let;
 }
 
 function changeGrid() {
     
 }
 
-function appendGrids(mainDiv, squareSize) {
+function appendGrids(squareSize) {
     for (let i = 0; i < 50; i++) {
         let column = document.createElement("div");
         column.setAttribute("class", "column");
         mainDiv.appendChild(column);
         for (let j = 0; j < 50; j++) {
             let square = document.createElement("div");
+            square.setAttribute("class", "square");
             column.appendChild(square);
         }
     }
