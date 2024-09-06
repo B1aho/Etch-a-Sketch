@@ -12,6 +12,7 @@ function initGrid() {
     listenInputChangeGridValue(inputGrid, value);
 }
 
+// Set event listeners to apply color-function only if mousedown and mousedown + mouseover
 function setListenersForGrid() {
     mainDiv.addEventListener("mousedown", (event) => {
         event.preventDefault();
@@ -23,6 +24,7 @@ function setListenersForGrid() {
     })
 }
 
+// Use event delegation to handle the tool
 function setListenersForTools(tools) {
     tools.addEventListener("click", (event) => {
         console.log("tool press");
@@ -96,6 +98,7 @@ function randomColor(event) {
     event.target.style.background = `rgb(${x}, ${y} ,${z})`; 
 }
 
+// Parse the hexadecimal value of color and build a function to change square color
 function setListenersForInputColor(input) {
     input.addEventListener("input", (event) => {
         let color = event.target.value;
@@ -109,4 +112,5 @@ function setListenersForInputColor(input) {
     })
 }
 
+// Start script
 initGrid();
