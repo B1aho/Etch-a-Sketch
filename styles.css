@@ -88,6 +88,7 @@ button:active {
     justify-content: center;
     padding: 50px;
     background-color: rgba(135, 39, 183, 0.628);
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 0px 0 inset;
     border-radius: 5px;
 }
 
